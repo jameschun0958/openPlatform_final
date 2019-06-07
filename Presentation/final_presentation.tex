@@ -1,0 +1,73 @@
+\documentclass{beamer}
+\usepackage{xcolor}
+\usepackage{graphicx}
+\usepackage{CJKutf8}
+
+\usetheme{Madrid}
+
+\setbeamertemplate{footline}
+{
+\leavevmode
+\hbox{
+\begin{beamercolorbox}
+[wd=1\paperwidth,ht=2.25ex,
+dp=1ex,right]{date in head/foot}
+\insertframenumber{} /
+\inserttotalframenumber\hspace*{2ex}
+\end{beamercolorbox}
+}\vskip0pt
+}
+
+\AtBeginSubsection[]
+{
+  \begin{frame}<beamer>[shrink]{Outline}
+    \tableofcontents[currentsection,currentsubsection]
+  \end{frame}
+}
+
+
+\begin{document}
+\begin{CJK}{UTF8}{nkai}
+\title{開放平台軟體 期末報告}
+\author{張友澤，李政憲，游登翔，張哲郡，劉彥麟}
+
+\begin{frame}
+  \titlepage
+\end{frame}
+
+\begin{frame}[shrink]{Outline}
+  \tableofcontents
+\end{frame}
+
+
+\section{ Introduction}
+\subsection{Introduction to your team}
+\subsection{Introduction to the problem you're trying to solve}
+
+\section{Methodology}
+\subsection{Input of your model}
+\subsection{Output of your model}
+\subsection{Each layer of your model}
+\subsection{How you save your model?}
+\subsection{File size of your model}
+\subsection{What's your loss functions, and why?}
+\subsection{What's your optimizer and the setting of hyperparameter?}
+
+\section{Dataset}
+\subsection{The size of your dataset should be larger than 1K}
+\subsection{How you collect/build your dataset?}
+\subsection{How many paired training samples in your dataset?}
+\subsection{How many paired validating samples in your dataset?}
+\subsection{How many paired testing samples in your dataset?}
+
+\section{Experimental Evaluation}
+\subsection{Experimental environment (CPU, GPU, memory,…,etc.)}
+\subsection{How many epochs you set for training?}
+\subsection{Qualitative evaluation}
+\subsection{Quantitative evaluation}
+
+
+\end{CJK}
+\end{document}
+
+
