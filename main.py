@@ -83,7 +83,7 @@ class ConvolutionalNeuralNetworks():
         d9 = dense(d8, f_size=5, dr=False, lastLayer=True) #add
         '''
 
-        return Model(d0, d7)
+        return Model(d0, d6)
 
     def train(self, epochs, batch_size=1, sample_interval=50):
 
