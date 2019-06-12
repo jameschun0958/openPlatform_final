@@ -141,7 +141,7 @@ class DataLoader():
         # If maximum length exceeds mfcc lengths then pad the remaining ones
         if (max_len > mfcc.shape[1]):
             pad_width = max_len - mfcc.shape[1]
-            mfcc = np.pad(mfcc, pad_width=((0, 0), (0, pad_width)), mode='constant')
+            mfcc = np.pad(mfcc, pad_width=((0, 0), (0, pad_width)), mode='constant') #對mfcc陣列做padding
 
         # Else cutoff the remaining parts
         else:
