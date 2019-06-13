@@ -20,8 +20,8 @@ dp=1ex,right]{date in head/foot}
 
 \AtBeginSubsection[]
 {
-  \begin{frame}<beamer>[shrink]{Outline}
-    \tableofcontents[currentsection,currentsubsection]
+  \begin{frame}<beamer>{Outline}
+  \tiny{\tableofcontents[currentsection,currentsubsection]}
   \end{frame}
 }
 
@@ -29,19 +29,29 @@ dp=1ex,right]{date in head/foot}
 \begin{document}
 \begin{CJK}{UTF8}{nkai}
 \title{開放平台軟體 期末報告}
-\author{張友澤  李政憲  游登翔  張哲郡  劉彥麟 }
+\author{張友澤  李政憲  游登翔  張哲郡  劉彥麟}
 
 \begin{frame}
   \titlepage
 \end{frame}
 
-\begin{frame}[shrink]{Outline} 
-\tableofcontents 
+\begin{frame}{Outline}
+\tiny{\tableofcontents}
 \end{frame}
 
-\section{ Introduction}
+\section{Introduction}
 \subsection{Introduction to your team}
+\begin{frame}{Introduction}{Introduction to your team}
+	1051438 張友澤\\
+	1051518 李政憲\\ 
+	1051540 游登翔\\ 
+	1051541 張哲郡\\ 
+	1051543 劉彥麟\\
+ \end{frame}
 \subsection{Introduction to the problem you're trying to solve}
+\begin{frame}{Introduction}{Introduction to the problem you're trying to solve}
+	有時候在廣播電台中、逛街途中會聽到自己覺得很好聽的音樂，但又不知道是誰唱得的時候，就可以錄一段音樂(要有人聲)，再丟進我們的程式，讓他告訴你是誰唱的。
+ \end{frame}
 
 \section{Methodology}
 \subsection{Input and output of your model}
@@ -100,8 +110,8 @@ The Fig.\,\ref{fig:2.5.1}
 \label{fig:2.5.1}
  \end{figure}
 \end{frame}
-\section{ Dataset}
-\subsection { The size of our dataset should be larger than 1K}
+\section{Dataset}
+\subsection {The size of our dataset should be larger than 1K}
 \begin{frame}{Dataset}{The size of our dataset should be larger than 1K}
 \begin{figure}
 \begin{center} 
@@ -124,38 +134,38 @@ The Fig.\,\ref{fig:2.5.1}
 \end{frame}
 \subsection{How many paired training samples in dataset?}
 \begin{frame}{Dataset}{How many paired training samples in  dataset?}
- 使用800筆資料去訓練成模組
+使用此段code，從Dataset中每個類別取160筆資料(總共800筆資料)去訓練成模組
 \newline
 \newline
 \begin{figure}
 \begin{center} 
-\includegraphics[height=4cm]{2.png}
+\includegraphics[height=4cm]{SperateCode_TrainData.png}
 \end{center}
-\caption{所有類別的Train Data}
+\caption{利用function把1000筆資料分成800筆}
 \end{figure}
 \end{frame}
 \subsection{How many paired validating samples in dataset?}
 \begin{frame}{Dataset}{How many paired validating samples in  dataset?}
-總共200筆資料來驗證模組的準確度
+使用此段code，從Dataset中每個類別取40筆資料(總共200筆資料，不會與train dataset的資料重複)來驗證模組的準確度
 \newline
 \newline
 \begin{figure}
 \begin{center} 
-\includegraphics[height=4cm]{7.png}
+\includegraphics[height=4cm]{SperateCode_ValidatingData.png}
 \end{center}
-\caption{所有類別的Validating Data}
+\caption{利用function把1000筆資料分成200筆}
 \end{figure}
 \end{frame}
 \subsection{How many paired testing samples in  dataset?}
 \begin{frame}{Dataset}{How many paired testing samples in  dataset?}
-總共200筆資料來測試模組
+總共50筆資料來測試模組
 \newline
 \newline
 \begin{figure}
 \begin{center} 
 \includegraphics[height=4cm]{6.png}
 \end{center}
-\caption{所有類別的Test Data}
+\caption{50筆隨機歌手人聲的Test Data}
 \end{figure}
 \end{frame}
 
@@ -165,7 +175,9 @@ The Fig.\,\ref{fig:2.5.1}
 	CPU: Intel i5-4570 3.40GHz\\
 	RAM: 16GB\\
 	作業系統: Windows 10企業版\\
-	系統類型: 64位元作業系統，x64型處理器\newline\newline
+	系統類型: 64位元作業系統，x64型處理器\\
+	Pycharm 2019.1.1 (Professional Edition)\\
+	(沒有使用GPU跑model)\newline\newline
 	本專題訓練了99個epochs
 \end{frame}
 
@@ -184,9 +196,22 @@ The Fig.\,\ref{fig:4.3.2}
  \end{figure}
 \end{frame}
 
+\section*{Authorship}
+\subsection*{Job scheduling of your team}
+\begin{frame}{Authorship}{Job scheduling of your team}
+05/31-06/03 每個人上傳自己選擇的歌手的dataset(200個檔案)\\
+06/03-06/09 寫codetrain完model到99世代\\
+06/09-06/13 Latex建置presentation，SRS
+ \end{frame}
 
-
-
+\subsection*{Contribution of each team member with evidence}
+\begin{frame}{Authorship}{Contribution of each team member with evidence}
+張友澤：dataset，SRS\\
+李政憲：dataset，Presentation\\ 
+游登翔：dataset，Presentation\\ 
+張哲郡：dataset，大部分code\\ 
+劉彥麟：dataset，SRS\\
+ \end{frame}
 
 \end{CJK}
 \end{document}
