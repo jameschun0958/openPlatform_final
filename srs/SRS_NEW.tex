@@ -62,15 +62,19 @@ platform:pycharm python3\\
 \begin{center}
 \includegraphics[width=15cm]{software.png}
 \end{center}
+\caption{為predict.py}
 \label{fig:1}
 \end{figure}
 \subsection{\Large Hardware Interfaces\\}
-windows 10//
+CPU:intel i5-4570\\
+ram:16G\\
+x64作業系統\\
+
 \newpage
 \subsection{\Large Software Interfaces\\}
-operating system:windows
-pycharm\\
-ffmpeg
+operating system:windows 10\\
+python 3 IDE \\
+影像處理:ffmpeg\\
 
 \newpage
 
@@ -78,11 +82,15 @@ ffmpeg
 
 \section{\huge\bf \color{blue}  System Features }
 \subsection{\Large Description and Priority }
-	將數據分類好放入 “/dataset”\\
-	將所有歌手的mp3檔進行資料前處理壓縮成.npy檔\\
-	使用.npy檔進行model的學習\\
-	透過學習成果分辨其他mp3檔的歌手\\
-
+	
+	透過機器學系對歌曲進行訓練，用訓練出的模型來判斷其他mp3檔的歌手名稱。
+\begin{figure}[h]
+\begin{center}
+\includegraphics[width=14cm]{FS.jpg}
+\end{center}
+\caption{為系統流程圖}
+\label{fig:2}
+\end{figure}
 
 \subsection{\Large Stimulus/Response Sequences}
 \begin{figure}[h]
@@ -97,12 +105,31 @@ ffmpeg
 \end{figure}
 
 \subsection{ \Large Functional Requirements}
- REQ-1:新增歌手進入數據集
-
+ \begin{center}
+	\begin{tabular}{|c|c|p{8cm}|}\hline
+		需求編號 & 優先度 & 需求描述 \\ \hline
+		FR001 & 1 & 新增歌手進入數據集 \\ \hline
+		FR002 & 1 &  辨識、預測歌手名稱\\\hline
+	\end{tabular}
+\end{center}
 
 \section{\huge\bf  \color {blue}  Other Nonfunctional Requirements }
 \subsection{ \Large Performance Requirements}
-訓練歌手的mp3檔需200筆\\\\\\\\
+\begin{center}
+	性能需求\\
+	\begin{tabular}{|c|c|p{8cm}|}\hline
+		需求編號 & 優先度 & 需求描述 \\ \hline
+		PR001 & 1 &訓練歌手的mp3檔需200筆  \\ \hline
+	\end{tabular}
+\end{center}
+\begin{center}
+	安裝需求\\
+	\begin{tabular}{|c|c|p{8cm}|}\hline
+		需求編號 & 優先度 & 需求描述 \\ \hline
+		PR002 & 1 &程式碼需相容Python3.0以上版本  \\ \hline
+	\end{tabular}
+\end{center}
+\newpage
 \Huge\bf   Thank you for watching
 
 
