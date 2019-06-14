@@ -10,7 +10,7 @@ import numpy as np
 from data_loader import DataLoader
 from sklearn.metrics import accuracy_score
 from keras.models import load_model
-
+import tkinter as tk
 
 class ConvolutionalNeuralNetworks():
     def __init__(self):
@@ -97,24 +97,55 @@ class ConvolutionalNeuralNetworks():
             int(accuracy_score(np.argmax(Xte_labels, axis=1), np.argmax(pred_labels, axis=1)) * 100)) + "%")
         self.CNN_Network.save('./saved_model/CNN_Network_on_epoch_%d.h5' % epoch)
 
-if __name__ == '__main__':
-    my_CNN = ConvolutionalNeuralNetworks()
-    my_CNN_Model = my_CNN.build_CNN_Network()
-    my_CNN_Model.load_weights('saved_model/CNN_Network_on_epoch_30.h5')
-    data_loader = DataLoader(Train=False)
 
-    print("labels=", data_loader.get_labels("./dataset"))
-    mfcc = data_loader.wav2mfcc('./dataset_test/Jay Chou/001.mp3')
+        #按下按鈕輸出結果
+def click_me():
+    label_var.set(my_enter.get())
+    mfcc = data_loader.wav2mfcc('./dataset_test/'+str(label_var.get()))
     mfcc_reshaped = mfcc.reshape(1, 20, 11, 1)
 
-    predict = np.argmax(my_CNN_Model.predict(mfcc_reshaped))
-    if(predict == 0 ):
-        print("predict=", "Aimer")
-    if(predict == 1 ):
-        print("predict=", "Jay Chou")
-    if(predict == 2 ):
-        print("predict=", "Jolin Tsai")
-    if(predict == 3 ):
-        print("predict=", "Kenshi Yonezu")
-    if(predict == 4 ):
-        print("predict=", "Maroon5")
+    predict = data_loader.get_labels()[0][np.argmax(my_CNN_Model.predict(mfcc_reshaped))]
+    print(predict)
+    resultString.set('\n辨識結果: \n'+ '歌曲路徑: dataset_test/'+str(label_var.get()) +'\n可能屬於" '+predict+' "所演唱~')
+
+if __name__ == '__main__':
+    my_CNN = ConvolutionalNeuralNetworks()
+
+    my_CNN_Model = my_CNN.build_CNN_Network()
+    my_CNN_Model.load_weights('saved_model/CNN_Network_on_epoch_99.h5')
+    data_loader = DataLoader(Train=False)
+    #製作介面
+    root = tk.Tk()
+    root.title('歌手辨識系統')
+    root.geometry('400x200')
+    textLabel=tk.Label(root, text='請輸入欲歌曲的路徑名稱:').grid(column=0, row=0, sticky=tk.W)
+    my_enter = tk.Entry(root , width=20)
+    my_enter.grid(column=1, row=0, sticky=tk.W)
+    #my_enter.pack(padx=10,pady=20)
+    L2=tk.Label(root).grid(column=0, row=1, sticky=tk.W)
+    L3 = tk.Label(root).grid(column=0, row=2, sticky=tk.W)
+    label_var = tk.StringVar()
+    my_button1 = tk.Button(root, text='開始辨識!', command=click_me).grid(column=1, row=3, sticky=tk.W)
+    #my_button1.pack()
+    resultString = tk.StringVar()
+    resultLabel = tk.Label(root, textvariable=resultString).grid(column=1, row=4, sticky=tk.W)
+    #resultLabel.pack()
+    #重複執行介面
+    root.mainloop()
+   # print("labels=", data_loader.get_labels("./dataset"))
+
+
+    '''
+    count=0
+    for i in range(50):
+        mfcc = data_loader.wav2mfcc('./dataset/Aimer/%03d.mp3'%(i+1))
+        mfcc_reshaped = mfcc.reshape(1, 20, 11, 1)
+
+        predict = data_loader.get_labels()[0][np.argmax(my_CNN_Model.predict(mfcc_reshaped))]
+        print(predict)
+        
+        if(predict=='Aimer')
+            count++
+    '''
+
+
