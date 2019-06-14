@@ -68,13 +68,14 @@ The Fig.\,\ref{fig:2.1.1}
 \subsection{Each layer of your model}
 \begin{frame}{Methodology}{Each layer of model}
 
-d0 = Input(shape=self.img\_shape)\\
- d1 = conv2d(d0, filters=32, f\_size=2, stride=1, bn=True) 建立卷積層\\
- d2 = maxpooling2d(d1, f\_size=2, stride=2) 建立池化層\\
- d3 = Dropout(0.25)(d2) Dropout層\\
-d4 = flatten(d3)  Flatten層\\
-d5 = dense(d4, f\_size=128, dr=True, lastLayer=False) 全連接層\\
- d6 = dense(d5, f\_size=5, dr=False, lastLayer=True) 全連接層\\
+d0 = Input(shape=self.img\_shape)\#shape=(?,20,11,1)\\
+d1 = conv2d(d0, filters=32, f\_size=2, stride=1, bn=True)\\
+\qquad\quad\#shape=(?,19,10,32)\\
+d2 = maxpooling2d(d1, f\_size=2, stride=2)\#shape=(?,9,5,32)\\
+d3 = Dropout(0.25)(d2)\#shape=(?,9,5,32)\\
+d4 = flatten(d3)\#shape=(?,?)\\
+d5 = dense(d4, f\_size=128, dr=True, lastLayer=False)\#shape=(?,128)\\
+d6 = dense(d5, f\_size=5, dr=False, lastLayer=True)\#shape=(?,5)\\
 
 \end{frame}
 
