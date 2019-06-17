@@ -88,7 +88,7 @@ python 3 IDE \\
 影像處理:ffmpeg\\
 \begin{figure}[h]
 \begin{center}
-\includegraphics[width=13cm]{UIN.png}
+\includegraphics[width=13cm]{software_interface.jpg}
 \end{center}
 \label{fig:1}
 \end{figure}
@@ -99,7 +99,7 @@ python 3 IDE \\
 \section{\huge\bf \color{blue}  System Features }
 \subsection{\Large Description and Priority }
 	
-	透過機器學系對歌曲進行訓練，用訓練出的模型來判斷其他mp3檔的歌手名稱,優先度是以判斷正確為最高優先。
+	透過機器學系對歌曲進行訓練，用訓練出的模型來判斷其他mp3檔的歌手名稱,優鮮度是以判斷正確為最高優先。
 \begin{figure}[h]
 \begin{center}
 \includegraphics[width=14cm]{FS.jpg}
@@ -109,13 +109,19 @@ python 3 IDE \\
 \end{figure}
 
 \subsection{\Large Stimulus/Response Sequences}
-	save\_data---以mp3檔轉換為.npy檔\\
-	start\_train---以.npy檔轉來訓練model\\
-	開始判斷---以判斷mp3檔的歌手名稱\\
-	
+	\begin{itemize}
+		\item case1:觸擊save\_data:\\
+			建立dataset裡各個歌手的.npy檔案
+		\item case2:觸擊start\_train:\\
+			生成由.npy黨所訓練的model
+		\item case3:輸入正確路徑:\\
+			回傳判斷個手名稱
+		\item case4:輸入錯誤路徑:\\
+			不回應
+	\end{itemize} 
 \subsection{ \Large Functional Requirements}
  \begin{center}
-	\begin{tabular}{|c|p{5cm}|c|c|c|}\hline
+	\begin{tabular}{|c|p{3cm}|c|c|c|}\hline
 		需求編號 &  需求描述&輸入&處理&輸出 \\ \hline
 		FR001 &  新增歌手進入數據集&mp3檔&以mp3檔訓練 model&model \\ \hline
 		FR002 &  辨識、預測歌手名稱&歌曲路徑&model判斷&歌手名稱\\\hline
@@ -128,18 +134,32 @@ python 3 IDE \\
 	性能需求\\
 	\begin{tabular}{|c|p{8cm}|}\hline
 		需求編號 & 需求描述 \\ \hline
-		PR001 & 訓練歌手的mp3檔需200筆  \\ \hline
-		PR002 & 需求時間1-10秒  \\ \hline
+		PR001 &  一位歌手需50MB的容量  \\ \hline
+		PR002 & 預測所需求時間1-5秒  \\ \hline
 	\end{tabular}
 \end{center}
 \begin{center}
-	安裝需求\\
+	易用需求\\
 	\begin{tabular}{|c|p{8cm}|}\hline
-		需求編號 &  需求描述 \\ \hline
-		PR003 & 程式碼需相容Python3.0以上版本  \\ \hline
-
+		需求編號  & 需求描述 \\ \hline
+		PR003  &介面簡單易於操作  \\ \hline
 	\end{tabular}
 \end{center}
+\begin{center}
+	環境需求\\
+	\begin{tabular}{|c|p{8cm}|}\hline
+		需求編號 & 需求描述 \\ \hline
+		PR004 & 程式碼需相容Python3.0以上版本  \\ \hline
+	\end{tabular}
+\end{center}
+\begin{center}
+	操作需求\\
+	\begin{tabular}{|c|p{8cm}|}\hline
+		需求編號  & 需求描述 \\ \hline
+		PR005  &訓練新歌手的mp3檔需200筆  \\ \hline
+	\end{tabular}
+\end{center}
+
 \newpage
 \Huge\bf   Thank you for watching
 
