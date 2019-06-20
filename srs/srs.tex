@@ -33,7 +33,12 @@
 
 \subsection{\Large Product Perspective\\}
  \large 這個project利用很多首歌訓練出了各種歌手的特徵值 再利用這些特徵值辨別出我們輸入進去的是哪位歌手\\
-
+\begin{figure}[h]
+\begin{center}
+\includegraphics[width=11cm]{product_persp.jpg}
+\end{center}
+\label{fig:2}
+\end{figure}
 \subsection{\Large Product Functions}
 \large 輸入進去歌曲的音檔 就能讓它判斷是我們給的歌手們(分類)中的哪位\\
 
@@ -43,7 +48,7 @@
 \begin{center}
 \includegraphics[width=11cm]{user.png}
 \end{center}
-\label{fig:1}
+\label{fig:3}
 \end{figure}
 \newpage
 \subsection{\Large Operating Environment \\}
@@ -72,7 +77,7 @@ platform:pycharm python3\\
 \includegraphics[width=15cm]{ui.png}
 \end{center}
 \caption{為predict.py}
-\label{fig:1}
+\label{fig:4}
 \end{figure}
 \subsection{\Large Hardware Interfaces\\}
 CPU:intel i5-4570\\
@@ -88,9 +93,9 @@ python 3 IDE \\
 影像處理:ffmpeg\\
 \begin{figure}[h]
 \begin{center}
-\includegraphics[width=13cm]{UIN.png}
+\includegraphics[width=13cm]{software_interface.jpg}
 \end{center}
-\label{fig:1}
+\label{fig:5}
 \end{figure}
 \newpage
 
@@ -105,17 +110,21 @@ python 3 IDE \\
 \includegraphics[width=14cm]{FS.jpg}
 \end{center}
 \caption{為系統流程圖}
-\label{fig:2}
+\label{fig:6}
 \end{figure}
 
 \subsection{\Large Stimulus/Response Sequences}
-	save\_data---以mp3檔轉換為.npy檔\\
-	start\_train---以.npy檔轉來訓練model\\
-	開始判斷---以判斷mp3檔的歌手名稱\\
-	
+	\begin{itemize}
+		\item case1:使用者執行main.py:\\
+			建立dataset裡各個歌手的.npy檔案，生成由.npy黨所訓練的model
+		\item case2:使用者輸入正確路徑:\\
+			回傳判斷個手名稱
+		\item case5:使用者輸入錯誤路徑:\\
+			不回應
+	\end{itemize} 
 \subsection{ \Large Functional Requirements}
  \begin{center}
-	\begin{tabular}{|c|p{5cm}|c|c|c|}\hline
+	\begin{tabular}{|c|p{3cm}|c|c|c|}\hline
 		需求編號 &  需求描述&輸入&處理&輸出 \\ \hline
 		FR001 &  新增歌手進入數據集&mp3檔&以mp3檔訓練 model&model \\ \hline
 		FR002 &  辨識、預測歌手名稱&歌曲路徑&model判斷&歌手名稱\\\hline
@@ -128,18 +137,26 @@ python 3 IDE \\
 	性能需求\\
 	\begin{tabular}{|c|p{8cm}|}\hline
 		需求編號 & 需求描述 \\ \hline
-		PR001 & 訓練歌手的mp3檔需200筆  \\ \hline
-		PR002 & 需求時間1-10秒  \\ \hline
+		PR001 &  一位歌手需50MB的容量  \\ \hline
+		PR002 & 預測所需求時間1-5秒  \\ \hline
 	\end{tabular}
 \end{center}
 \begin{center}
-	安裝需求\\
+	易用需求\\
 	\begin{tabular}{|c|p{8cm}|}\hline
-		需求編號 &  需求描述 \\ \hline
-		PR003 & 程式碼需相容Python3.0以上版本  \\ \hline
-
+		需求編號  & 需求描述 \\ \hline
+		PR003  &介面簡單易於操作  \\ \hline
 	\end{tabular}
 \end{center}
+\begin{center}
+	環境需求\\
+	\begin{tabular}{|c|p{8cm}|}\hline
+		需求編號 & 需求描述 \\ \hline
+		PR004 & 程式碼需相容Python3.0以上版本  \\ \hline
+	\end{tabular}
+\end{center}
+
+
 \newpage
 \Huge\bf   Thank you for watching
 
